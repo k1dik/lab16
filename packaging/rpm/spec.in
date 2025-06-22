@@ -1,0 +1,13 @@
+Name: solver
+Version: @VERSION@
+Release: 1
+Summary: Solver application from lab
+License: MIT
+Group: Development/Tools
+BuildArch: x86_64
+
+%description
+Solver application from lab
+
+%files
+/usr/local/bin/solver

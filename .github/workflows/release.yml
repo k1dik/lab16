@@ -1,0 +1,37 @@
+name: Build and Release Solver
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: sudo apt update && sudo apt install -y cmake cpack build-essential rpm
+
+    - name: Configure
+      run: cmake -B build -DCMAKE_INSTALL_PREFIX=/usr/local
+
+    - name: Build
+      run: cmake --build build --target solver
+
+    - name: Install
+      run: sudo cmake --install build
+
+    - name: Package
+      run: cd build && cpack
+
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          build/*.deb
+          build/*.rpm
+          build/*.tar.gz
+          build/*.zip

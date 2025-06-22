@@ -1,0 +1,7 @@
+Package: solver
+Version: @VERSION@
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Your Name <you@example.com>
+Description: Solver app from lab
