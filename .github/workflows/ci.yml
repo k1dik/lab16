@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [ main ] # На PR в main тоже можно билдить для проверки
 permissions:
-  contents: write
+  contents: write    # ← вот это решает ошибку!
 jobs:
   build:
     runs-on: ubuntu-latest
