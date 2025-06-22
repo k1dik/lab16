@@ -6,7 +6,8 @@ on:
       - 'v*'        # Только при пуше тега v1.0.0 например
   pull_request:
     branches: [ main ] # На PR в main тоже можно билдить для проверки
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
